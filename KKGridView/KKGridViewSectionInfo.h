@@ -6,6 +6,8 @@
 //  Copyright 2011 Giulio Petek, Jonathan Sterling, and Kolin Krewinkel. All rights reserved.
 //
 
+
+
 @interface KKGridViewSectionInfo : NSObject {
     @package
     CGFloat stickPoint;

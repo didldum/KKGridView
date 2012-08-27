@@ -542,13 +542,24 @@ struct KKSectionMetrics {
                 CGFloat sectionTwoY = sectionTwo->stickPoint;
                 if ((offset + sectionTwoHeight) >= sectionTwoY) {
                     headerFrame.origin.y = sectionTwoY - sectionTwoHeight;
+                    id <KKGridViewSticky> tmp = (id <KKGridViewSticky>)header.view;
+                    [tmp changedToUnSticky];
+                } else {
+                    id <KKGridViewSticky> tmp = (id <KKGridViewSticky>)header.view;
+                    [tmp changedToSticky];
                 }
-            }            
+            } else {
+                id <KKGridViewSticky> tmp = (id <KKGridViewSticky>)header.view;
+                [tmp changedToSticky];
+            }
+
         } else {
             // Put header back to default position
             headerFrame.origin.y = header->stickPoint;
             if (_dataSourceRespondsTo.titleForHeader)
                 header.view.backgroundColor = [UIColor colorWithPatternImage:headerBackgrounds[0]];
+            id <KKGridViewSticky> tmp = (id <KKGridViewSticky>)header.view;
+            [tmp changedToUnSticky];
         }
         
         header.view.frame = headerFrame;

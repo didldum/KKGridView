@@ -10,6 +10,14 @@
 #import <KKGridView/KKIndexPath.h>
 #import <KKGridView/Definitions.h>
 
+
+@protocol KKGridViewSticky <NSObject>
+
+- (void) changedToSticky;
+- (void) changedToUnSticky;
+
+@end
+
 typedef enum {
     KKGridViewAnimationFade,
     KKGridViewAnimationResize,
